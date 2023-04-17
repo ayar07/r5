@@ -23,10 +23,10 @@ class UsersPage extends React.Component {
         this.getUsers()
     }
 
-    getOneUser = (oneUser) => {
-        this.setState({
-            user: oneUser
-        })
+    getOneUser = async (id) => {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+        const user = await response.json()
+        this.setState({ user })
     }
 
     render() {
